@@ -17,7 +17,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         # Get the account key and account URL from the environment variables
         account_key = os.environ['AZURE_STORAGE_ACCOUNT_KEY']
         account_url = os.environ['AZURE_STORAGE_ACCOUNT_URL']
-        container_name = os.environ['CONTAINER']
+        #container_name = os.environ['CONTAINER']
     except Exception as e:
         stack_trace = traceback.format_exc()
         logging.info(f"Failed to capture Configuration Settings")
@@ -36,6 +36,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         if not csv_path:
             return func.HttpResponse(
                 "Please pass a csv_path in the request body",
+                status_code=400
+            )
+        container_name = req_body.get('container_name')
+        if not container_name:
+            return func.HttpResponse(
+                "Please pass a container_name in the request body",
                 status_code=400
             )
     except Exception as e:
