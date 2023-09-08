@@ -106,3 +106,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
              f"Successfully converted {csv_path} to {excel_path} in {container_name} container.",
              status_code=200
         )
+
+    # "AzureWebJobsStorage": "",
+    # "FUNCTIONS_WORKER_RUNTIME": "python",
+    # "AZURE_STORAGE_ACCOUNT_KEY":"",
+    # "AZURE_STORAGE_ACCOUNT_URL":"",
+    # "CONTAINER":"ankurtest"
+
+    
+# azure-functions
+# azure.storage.blob
+# pandas
+# xlsxwriter
